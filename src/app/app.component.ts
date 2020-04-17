@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'I am the parent Component passing into child one';
-
-  displayChildResult() {
-    alert('Child component reacts!');
-  }
 }
