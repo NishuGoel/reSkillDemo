@@ -9,6 +9,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppRoutingModule } from './app-routing.module';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { ColorDirectiveDirective } from './color-directive.directive';
+import { ExampleOneComponent } from './example-one/example-one.component';
+import { ExampleTwoComponent } from './example-two/example-two.component';
+import { ColorHighlightDirective } from './color-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { ColorDirectiveDirective } from './color-directive.directive';
     ReuseComponent,
     PageNotFoundComponent,
     ProductViewComponent,
-    ColorDirectiveDirective
+    ColorDirectiveDirective,
+    ExampleOneComponent,
+    ExampleTwoComponent,
+    ColorHighlightDirective
   ],
   imports: [
     BrowserModule,
