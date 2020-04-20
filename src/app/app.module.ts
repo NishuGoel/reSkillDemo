@@ -12,6 +12,7 @@ import { ColorDirectiveDirective } from './color-directive.directive';
 import { ExampleOneComponent } from './example-one/example-one.component';
 import { ExampleTwoComponent } from './example-two/example-two.component';
 import { ColorHighlightDirective } from './color-highlight.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { ColorHighlightDirective } from './color-highlight.directive';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
