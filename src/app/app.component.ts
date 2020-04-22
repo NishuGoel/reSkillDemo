@@ -9,10 +9,12 @@ import { HttpReqService } from './http-req.service';
 export class AppComponent {
   title = 'I am the parent Component passing into child one';
   public myPostsData: any;
+  public albumData: any;
 
   ngOnInit() {
     this._getAPIDatafromService();
     this._postAPIData();
+    
   }
 
   constructor(private _httpreq: HttpReqService) { }
@@ -46,4 +48,36 @@ export class AppComponent {
   private _postAPIError = (error) => {
     console.log(error);
   }
+
+  //List of Albums
+  public getAlbums(){
+    this._httpreq.getAPIDataAlbum()
+    .subscribe({next:this._getAlbumSuccessHandler, error: this._getAlbumErrorHandler })
+  }
+// cases
+// camelCase
+// kebab-case
+// PascalCase
+// snake_case
+
+
+ public _getAlbumSuccessHandler = (data)=> {
+    this.albumData= data
+ }
+
+ public _getAlbumErrorHandler = (error)=> {
+  alert(error); 
+}
+
+// Post List of Albums
+public postAlbums() {
+   this._httpreq.postDataAlbum(123, 'AlbumList', 1)
+   .subscribe({next: this._postAlbumSuccessHandler, error: this._postAlbumErrorHandler })
+}
+
+   private _postAlbumSuccessHandler = ( data )=> console.log(data);
+   
+   private _postAlbumErrorHandler = (error) =>  console.log(error);
+
+
 }

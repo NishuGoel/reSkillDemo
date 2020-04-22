@@ -6,7 +6,11 @@ export const environment = {
   production: false,
   SERVICE_APIS : {
     GET_LIST_OF_POSTS: 'https://jsonplaceholder.typicode.com/posts',
-    POST_API_DATA: 'https://jsonplaceholder.typicode.com/posts'
+    POST_API_DATA: 'https://jsonplaceholder.typicode.com/posts',
+    GET_LIST_OF_ALBUMS: 'https://jsonplaceholder.typicode.com/albums',
+    POST_LIST_OF_ALBUMS: 'https://jsonplaceholder.typicode.com/albums'
+    PUT_API_DATA: 'https://jsonplaceholder.typicode.com/posts',
+  
   }
 };
 

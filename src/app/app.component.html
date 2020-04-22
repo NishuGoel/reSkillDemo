@@ -3,12 +3,24 @@
 <app-child-one [title]="title"></app-child-one>
 
 
-<div *ngFor="let post of myPostsData">
+<!-- <div *ngFor="let post of myPostsData">
     <div>{{post.id}}</div>
     <div>{{post.title}}</div>
     <div>{{post.body}}</div>
     <div>{{post.userId}}</div>
+</div> 
+-->
+
+<button (click)='getAlbums()'> List of Albums</button>
+<div  *ngIf='albumData' >
+<div *ngFor = "let album of albumData">
+    {{album.userId}}
+    {{album.title}}
+    {{album.id}}
 </div>
+</div>
+
+<button *ngIf='albumData' (click)='postAlbums()'>Posting list of album</button>
 
 <!-- <div appColorDirective>Hello</div> -->
 
