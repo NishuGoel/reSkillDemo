@@ -9,6 +9,7 @@ import { HttpReqService } from './http-req.service';
 export class AppComponent {
   title = 'I am the parent Component passing into child one';
   public myPostsData: any;
+  public albumData: any;
 
   ngOnInit() {
     this._getAPIDatafromService();
@@ -20,7 +21,7 @@ export class AppComponent {
 
   private _getAPIDatafromService() {
     this._httpreq.getAPIData()
-    .subscribe({next: this._getAPIDataSuccess, error: this._getAPIDataError})
+      .subscribe({ next: this._getAPIDataSuccess, error: this._getAPIDataError })
   }
 
   private _getAPIDataSuccess = (data) => {
@@ -36,24 +37,25 @@ export class AppComponent {
 
   private _postAPIData() {
     this._httpreq.postDataToAPI('hello', 'something', 100)
-    .subscribe({next: this._postAPISuccess, error: this._postAPIError})
+      .subscribe({ next: this._postAPISuccess, error: this._postAPIError })
   }
 
   private _postAPISuccess = (data) => {
     console.log('Data received after post success');
-    console.log(data); 
+    console.log(data);
   }
 
   private _postAPIError = (error) => {
     console.log(error);
   }
 
-  private _updateData()  {
+  private _updateData() {
     this._httpreq.updateDataToPosts('New title value', 1)
-    .subscribe({next: this._putAPISuccess, error: this._putAPIError})
+      .subscribe({ next: this._putAPISuccess, error: this._putAPIError })
   }
 
   private _putAPISuccess = (data) => console.log(data);
   private _putAPIError = (err) => console.log(err);
-  
+
+
 }
