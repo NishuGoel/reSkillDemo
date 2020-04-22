@@ -24,4 +24,10 @@ export class HttpReqService {
     }
     )
   }
+
+  public updateDataToPosts(title, postId): Observable<any> {
+   return this._httpClient.put(environment.SERVICE_APIS.PUT_API_DATA + postId, {
+      title: title
+    })
+  }
 }

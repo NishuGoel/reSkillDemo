@@ -13,6 +13,7 @@ export class AppComponent {
   ngOnInit() {
     this._getAPIDatafromService();
     this._postAPIData();
+    this._updateData();
   }
 
   constructor(private _httpreq: HttpReqService) { }
@@ -46,4 +47,13 @@ export class AppComponent {
   private _postAPIError = (error) => {
     console.log(error);
   }
+
+  private _updateData()  {
+    this._httpreq.updateDataToPosts('New title value', 1)
+    .subscribe({next: this._putAPISuccess, error: this._putAPIError})
+  }
+
+  private _putAPISuccess = (data) => console.log(data);
+  private _putAPIError = (err) => console.log(err);
+  
 }
