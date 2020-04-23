@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ContentChild } from '@angular/core';
 import { HttpReqService } from './http-req.service';
+import { ChildTwoComponent } from './child-two/child-two.component';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,18 @@ export class AppComponent {
   title = 'I am the parent Component passing into child one';
   public myPostsData: any;
   public albumData: any;
+  public userDeleted: boolean;
+
+  @ContentChild(ChildTwoComponent, { static: true }) messageViewChild: ChildTwoComponent;
+  @ViewChild(ChildTwoComponent, { static: true }) childComp: ChildTwoComponent;
+
+  ngAfterViewInit() {
+    console.log(this.messageViewChild);
+  }
+
+  ngAfterContentInit() {
+    console.log(this.childComp);
+  }
 
   ngOnInit() {
     this._getAPIDatafromService();
@@ -57,5 +70,13 @@ export class AppComponent {
   private _putAPISuccess = (data) => console.log(data);
   private _putAPIError = (err) => console.log(err);
 
+  public deletePost() {
+    this._httpreq.deleteData(1)
+      .subscribe({ next: this._deleteSuccessHandler, error: this._deleteErrorhandler })
+  }
 
+  private _deleteSuccessHandler = (data) => {
+    this.userDeleted = true;
+  };
+  private _deleteErrorhandler = (error) => console.log(error);
 }

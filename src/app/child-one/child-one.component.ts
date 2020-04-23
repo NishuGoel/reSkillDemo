@@ -5,25 +5,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './child-one.component.html',
   styleUrls: ['./child-one.component.scss']
 })
-export class ChildOneComponent implements OnInit {
+export class ChildOneComponent {
 
   @Input() title: string;
   @Output() foo = new EventEmitter<any>();
 
+  counterval: number = 0;
 
-  constructor() { }
-
-  ngOnInit() {
+  counterClicked() {
+    this.foo.emit(this.counterval++);
   }
-
-  invokeToParent(){
-    this.foo.emit('a');
-  }
-
-  // Directives (Strcutural, Attribute, Component)
-  // *ngFor & *ngIf - Structural
-
-  // Attribute directives
-  // Custom Attribute Directives
 
 }

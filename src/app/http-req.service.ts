@@ -24,11 +24,15 @@ export class HttpReqService {
     }
     )
   }
-// PUT calls CRUD operation
+  // PUT calls CRUD operation
   public updateDataToPosts(title, postId): Observable<any> {
-   return this._httpClient.put(environment.SERVICE_APIS.PUT_API_DATA + postId, {
+    return this._httpClient.put(environment.SERVICE_APIS.PUT_API_DATA + postId, {
       title: title
     })
+  }
+
+  public deleteData(postId): Observable<any> {
+    return this._httpClient.delete(environment.SERVICE_APIS.DELETE_API_DATA + postId)
   }
 
   // Delete calls CRUD operation

@@ -7,7 +7,8 @@ export const environment = {
   SERVICE_APIS : {
     GET_LIST_OF_POSTS: 'https://jsonplaceholder.typicode.com/posts',
     POST_API_DATA: 'https://jsonplaceholder.typicode.com/posts',
-    PUT_API_DATA: 'https://jsonplaceholder.typicode.com/posts'
+    PUT_API_DATA: 'https://jsonplaceholder.typicode.com/posts/',
+    DELETE_API_DATA: 'https://jsonplaceholder.typicode.com/posts/'
   }
 };
 

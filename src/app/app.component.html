@@ -1,7 +1,10 @@
-<div class="container"><h1>Welcome to Global Azure 2020</h1></div>
+<div class="container">
+    <h1>Welcome to Global Azure 2020</h1>
+</div>
 
 <app-child-one [title]="title"></app-child-one>
 
+<button (click)='deletePost()'>Delete User</button>
 
 <!-- <div *ngFor="let post of myPostsData">
     <div>{{post.id}}</div>
@@ -11,9 +14,8 @@
 </div> 
 -->
 
+<div *ngIf="userDeleted">This user has been deleted</div>
 
-
-<!-- <div appColorDirective>Hello</div> -->
-
+<ng-content></ng-content>
 
 <router-outlet></router-outlet>
